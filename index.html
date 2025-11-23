@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Page Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            overflow-x: hidden;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+        }
+
+        .casual-font {
+            font-family: 'Caveat', cursive;
+        }
+        
+        #page-container {
+            display: flex;
+            width: 900vw;
+            height: 100vh;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .page-slide {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        #page-1 { background-color: #bfdbfe; }
+        #page-2 { background-color: #1f2937; } 
+        #page-6 { background-color: #064e3b; } 
+        
+        #page-4 { background-color: #dbeafe; } 
+        #page-7 { background-color: #8b0000; } 
+        
+        #page-8 { background-color: #1e3a8a; } 
+        
+        #page-9 { background-color: #000000; } 
+        
+        #page-1-bg { background-image: url('images/main bg.jpg'); }
+        #page-2-bg { background-image: url('images/felix bg.jpg'); }
+        #page-3-bg { background-image: url('images/jennie.png'); }
+        #page-4-bg { background-image: url('images/sabrina.png'); }
+        #page-5-bg { background-image: url('images/tyla.png'); }
+        #page-6-bg { background-image: url('images/cynon bg.jpg'); }
+        #page-7-bg { background-image: url('images/lany.png'); }
+        #page-8-bg { background-image: url('images/lauv.png'); }
+        #page-9-bg { background-image: url('images/arthur.png'); }
+        
+        .bg-cover-base {
+            background-size: contain; 
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            cursor: pointer;
+            padding: 1rem;
+            transition: opacity 0.3s, background-color 0.3s;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        #page-container[style*="translateX(0vw)"] ~ .nav-arrow {
+             background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .nav-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page-container">
+        
+        <div id="page-1" class="page-slide flex flex-col items-center justify-center p-8">
+            <div id="page-1-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Garden background placeholder"></div>
+            <div class="absolute inset-0 bg-white opacity-10"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center max-w-md">
+                <h1 class="casual-font text-5xl md:text-7xl font-extrabold tracking-tight text-center text-blue-900">
+                    Song/Album Recommendations!!
+                </h1>
+                <h2 class="casual-font text-3xl md:text-4xl font-semibold tracking-tight text-center text-blue-800 mt-2 mb-6">
+                    by Felix and Cynon :p
+                </h2>
+                <p class="casual-font text-3xl text-slate-700 text-center font-bold">
+                    Ready to dive in? Just hit the arrows to check out our picks!
+                </p>
+            </div>
+        </div>
+
+        <div id="page-2" class="page-slide flex flex-col items-center justify-center text-white p-8">
+            <div id="page-2-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Abstract blue background"></div>
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center animate-pulse">
+                <h1 class="casual-font text-6xl md:text-8xl font-extrabold tracking-widest text-center text-white drop-shadow-lg">
+                    Felix's Picks
+                </h1>
+                <div class="mt-4 w-24 h-1 bg-white rounded"></div>
+            </div>
+        </div>
+
+        <div id="page-3" class="page-slide">
+            <div id="page-3-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 1"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/album/1vWMw6pu3err6qqZzI3RhH?si=NmaWgh9pQ6m3DBYq8RWgdA" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-red-700 hover:bg-red-800 text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-4" class="page-slide">
+            <div id="page-4-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 2"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/album/3WzBIQmn2hrulLeTY9smkk?si=-JjPn2YPSPy7-mL8lQ97SA" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-blue-300 hover:bg-blue-400 text-blue-900 text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-5" class="page-slide">
+            <div id="page-5-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 3"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/track/4VxTzYm00mg82MuoT35Ja7?si=4cbd075e307b44e4" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-gray-900 hover:bg-black text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-700 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="page-6" class="page-slide flex flex-col items-center justify-center text-white p-8">
+            <div id="page-6-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Abstract magenta background"></div>
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="relative z-10 flex flex-col items-center justify-center animate-pulse">
+                <h1 class="casual-font text-6xl md:text-8xl font-extrabold tracking-widest text-center text-pink-200 drop-shadow-lg">
+                    Cynon's Picks
+                </h1>
+                <div class="mt-4 w-24 h-1 bg-pink-200 rounded"></div>
+            </div>
+        </div>
+
+        <div id="page-7" class="page-slide">
+            <div id="page-7-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 4"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/track/2btKtacOXuMtC9WjcNRvAA?si=e715f3bf6c574dcd" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-8" class="page-slide">
+            <div id="page-8-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 5"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/track/1jXfVzMk8cSbvAXMML4Y4f?si=fde09e2c06474c81" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-9" class="page-slide">
+            <div id="page-9-bg" class="absolute inset-0 bg-cover-base" role="img" aria-label="Background image for listening page 6"></div>
+            <div class="relative z-10 w-full h-full flex flex-col items-center justify-end p-8">
+                <div class="mb-4">
+                    <a href="https://open.spotify.com/track/0WZqHCoOBXqgCCIsUZLC2a?si=0dd65eb916404301" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-gray-900 hover:bg-black text-white text-lg font-bold uppercase tracking-wider rounded-full shadow-2xl transition duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-700 focus:ring-opacity-50">
+                        Listen Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="left-arrow" class="nav-arrow left-4" onclick="navigate('left')">
+        <svg class="w-8 h-8 text-white drop-shadow-md" style="filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </div>
+
+    <div id="right-arrow" class="nav-arrow right-4" onclick="navigate('right')">
+        <svg class="w-8 h-8 text-white drop-shadow-md" style="filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </div>
+
+    <script>
+        const pageContainer = document.getElementById('page-container');
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        let currentPage = 1;
+        const totalPages = 9;
+
+        function updateArrows() {
+            leftArrow.style.opacity = currentPage === 1 ? '0' : '1';
+            leftArrow.style.pointerEvents = currentPage === 1 ? 'none' : 'auto';
+
+            rightArrow.style.opacity = currentPage === totalPages ? '0' : '1';
+            rightArrow.style.pointerEvents = currentPage === totalPages ? 'none' : 'auto';
+        }
+
+        function navigate(direction) {
+            if (direction === 'right' && currentPage < totalPages) {
+                currentPage++;
+            } else if (direction === 'left' && currentPage > 1) {
+                currentPage--;
+            }
+            
+            const translateValue = (currentPage - 1) * -100;
+            pageContainer.style.transform = `translateX(${translateValue}vw)`;
+
+            updateArrows();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateArrows();
+        });
+    </script>
+</body>
+</html>
